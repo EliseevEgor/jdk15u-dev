@@ -226,6 +226,13 @@ class VersionProps {
         String vendor_version = (VENDOR_VERSION.isEmpty()
                                  ? "" : " " + VENDOR_VERSION);
 
+        /**
+         * We should change java_runtime_name
+         * RUNTIME_NAME=$(PRODUCT_NAME) $(PRODUCT_SUFFIX)
+         * default values are in make/autoconf/version-numbers but configure can change it.
+         * We can change field PRODUCT_NAME in make/autoconf/version-numbers
+         * or change PRODUCT_NAME in make/autoconf/spec.gmk.in where we define RUNTIME_NAME
+         */
         ps.println(java_runtime_name + vendor_version
                    + " (" + jdk_debug_level + "build " + java_runtime_version + ")");
 
